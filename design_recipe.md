@@ -234,14 +234,14 @@ class Task:
 
 ## How to think out your test cases (Integration and Unit)
 
-# For Integration Tests:
+### For Integration Tests:
 
 - Look at your user stories - what combinations haven't you tested?
 - Think like a real user - what would they actually do?
 - Create realistic scenarios with specific, verifiable data
 
 
-# For Unit Tests:
+### For Unit Tests:
 
 - Go method by method through each class
 - Test the happy path (normal usage)
@@ -364,7 +364,7 @@ incomplete_tasks # => [task2, task3]  # task1 was completed
 
 ### 🧠 Thought process 
 
-Go through EACH class and asked "What does this class need to do"?
+Go through EACH class and ask "What does this class need to do"?
 
 For ```DiaryEntry```:
 - ✅ Store title → test the property
