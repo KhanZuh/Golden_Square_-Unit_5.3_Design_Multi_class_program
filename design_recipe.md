@@ -26,7 +26,7 @@
 ## 2. Design the Class System
 
 ```
-Identify the nouns (they become classes)
+Identify the nouns (they become classes/attributes/objects)
 1. diary
 2. diary entries
 3. experiences
@@ -91,8 +91,11 @@ Implementation
 │ - tasks: []                     │
 │                                 │
 │ - add_task(task)                │
-│ - mark_complete(task)           │
+│                                 │
 │ - get_incomplete_tasks()        │
+│ - get_complete_tasks()          │
+│ - mark_all_complete()           │
+│ - get_task_count()              │
 └─────────────┬───────────────────┘
               │
               │ owns/manages
