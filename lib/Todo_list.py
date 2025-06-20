@@ -7,6 +7,9 @@ class TodoList:
         if task is None:
             raise Exception("Cannot add None as a task")  # Changed from ValueError to Exception
         self.tasks.append(task)
+    
+    def get_all_tasks(self):
+        return self.tasks
 
     
     def get_incomplete_tasks(self):

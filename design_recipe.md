@@ -509,3 +509,45 @@ _Encode each example as a test. You can add to the above list as you go._
 
 _After each test you write, follow the test-driving process of red, green,
 refactor to implement the behaviour._
+
+## 6. Some extra notes about implementing the DiarySystem class
+
+DiarySystem manages entries directly because:
+- DiarySystem needs to do operations ACROSS multiple entries (like finding all phone numbers from all entries)
+- DiarySystem needs to filter entries by reading time (which requires knowing about multiple entries)
+- The "diary" behavior is distributed between DiarySystem (collection-level operations) and DiaryEntry (individual entry operations)
+
+
+DiarySystem uses TodoList instance because:
+- TodoList already provides all the collection management behavior needed
+- DiarySystem doesn't need to reimplement filtering, counting, etc.
+- The todo functionality is fully encapsulated in TodoList
+
+
+Object-oriented design:
+- DiaryEntry = individual entry behavior
+- DiarySystem = cross-entry operations + system coordination
+- TodoList = task collection management
+- Task = individual task behavior
+
+
+### Explained from user perspective:
+DiarySystem + DiaryEntries:
+- "I need to look INSIDE each diary entry and do things WITH them"
+- "I need to read their contents, count their words, filter them by time"
+- = Direct access to the list so I can work with each individual entry
+
+DiarySystem + TodoList:
+- "I just need todo functionality, and TodoList already does everything I need"
+- "I don't need to change how todos work, just use what's already there"
+- = Use the whole TodoList object and let it handle its own business
+
+### Real World Analogy:
+DiaryEntries = Like having a box of books
+- You need to open each book, read pages, count words, organize them by reading time
+- You need direct access to manipulate the individual books
+
+TodoList = Like having a personal assistant for tasks
+- You just tell them "handle my tasks" and they do everything
+- You don't need to micromanage how they organize the tasks
+

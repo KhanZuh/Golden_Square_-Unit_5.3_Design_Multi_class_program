@@ -18,17 +18,18 @@ class DiaryEntry:
         return time_in_minutes
     
     def extract_phone_numbers(self):
-        pattern = r'\d+(?:\s+\d+)+'
+        pattern = r'\b\d+(?:\s+\d+)*\b'
         matches = re.findall(pattern, self.contents)
         print(f"Regex found: {matches}") 
-        cleaned_matches = []
+        valid_numbers = []
         for match in matches:
             print(f"Processing: '{match}'")
-            cleaned_string = match.replace(" ", "")
-            print(f"Cleaned to: '{cleaned_string}'")
-            cleaned_matches.append(cleaned_string)
-            print(f"List now contains: {cleaned_matches}")
+            cleaned_match = match.replace(" ", "")
+            print(f"Cleaned to: '{cleaned_match}'")
+            if len(cleaned_match) == 11:
+                valid_numbers.append(cleaned_match)
+            print(f"List now contains: {valid_numbers}")
 
-        print(f"Final result: {cleaned_matches}")
-        return cleaned_matches
-    
+        print(f"Final result: {valid_numbers}")
+        return valid_numbers
+
